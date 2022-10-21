@@ -8,12 +8,56 @@
   letter-spacing: 1.3px;
   font-weight: 600;
 }
-div.main_inputs_input {
-  display: flex;
-  gap: 20px;
+
+input[type="checkbox"] {
+  visibility: hidden;
 }
-div.main_inputs_input label {
-  align-self: center;
+label.main_inputs_checkbox {
+  display: block;
+  position: relative;
+  padding-left: 45px;
+  cursor: pointer;
+  font-size: 16px;
+}
+span.main_inputs_checkbox_custom {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #333;
+}
+label.main_inputs_checkbox:hover input ~ span.main_inputs_checkbox_custom {
+  background-color: rgb(153, 231, 153);
+}
+label.main_inputs_checkbox input:active ~ span.main_inputs_checkbox_custom {
+  background-color: rgb(153, 231, 153);
+}
+label.main_inputs_checkbox input:checked ~ span.main_inputs_checkbox_custom {
+  background-color: rgb(153, 231, 153);
+}
+span.main_inputs_checkbox_custom::after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+//Sprawdzić to
+label.main_inputs_checkbox
+  input:checked
+  ~ span.main_inputs_checkbox_custom:after {
+  display: block;
+}
+span.main_inputs_checkbox_custom::after {
+  left: 8px;
+  bottom: 5px;
+  width: 6px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 4px 4px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 input[type="range"] {
   -webkit-appearance: none;
@@ -124,28 +168,7 @@ input[type="range"]::-webkit-progress-bar {
   width: 100%;
 }
 input[type="range"]::-moz-progress-bar {
-  background: red;
+  background-color: #99e799;
   height: 25px;
   width: 25px;
-}
-
-input[type="checkbox"] {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  height: 25px;
-  width: 25px;
-  background-color: rgb(153, 231, 153);
-}
-input[type="checkbox"]::after {
-  left: 9px;
-  top: 5px;
-  width: 5px;
-  height: 10px;
-  border: solid white;
-  background-color: rgb(153, 231, 153);
-  border-width: 0 3px 3px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
 }
